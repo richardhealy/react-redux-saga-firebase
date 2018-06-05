@@ -2,7 +2,7 @@
 
 ## Info
 
-Uses:
+### Uses:
   * React (create-react-app)
   * firebase 4.3.1
   * react-router 4.2.0
@@ -10,7 +10,7 @@ Uses:
   * redux-saga-firebase
   * react-router-redux (^5.0.0-alpha.9) using react-router 4
 
-Features:
+### Features:
   * Sign In
   * Register
   * Sign Out
@@ -19,7 +19,7 @@ Features:
   * Protected Routes with Authorization
   * Database: Users
 
-##To install
+### To install
 
 From terminal:
 - `git clone https://github.com/richardhealy/react-redux-saga-firebase.git`
@@ -28,13 +28,13 @@ From terminal:
 - `npm install` 
 - `npm start`
 
-Todo
+### Todo
 
 - Move config to separate folder. Refactor to deal with different env configs.
 - Remove messaging from redux reducers. Feels unnatural being in there.
 - Refactor the reducers to be cleaner.
 
-##Thanks to:
+### Special thanks to:
 
 - Based on the work from: https://github.com/rwieruch/react-mobx-firebase-authentication
 - ...and https://github.com/n6g7/redux-saga-firebase for making Firebase integration easy!
