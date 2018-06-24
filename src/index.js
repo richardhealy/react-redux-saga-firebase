@@ -7,13 +7,13 @@ import { Provider } from 'react-redux';
 
 import store from './stores';
 
-import App from './components/App';
+import ConnectedApp from './components/App/ConnectedApp';
 
 import './index.css';
 
 ReactDOM.render(
   <Provider store={store}>
-  	  <App />
+  	  <ConnectedApp />
   </Provider>,
   document.getElementById('root')
 );
