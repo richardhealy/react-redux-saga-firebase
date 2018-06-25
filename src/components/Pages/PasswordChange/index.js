@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
-import withAuthorization from '../../Session/withAuthorization';
+import withAuthorizationRouter from '../../Session/withAuthorizationRouter';
 
 import PasswordChangeForm from '../../UI/PasswordChangeForm';
 import InlineMessage from '../../UI/InlineMessage';
@@ -27,10 +27,8 @@ const mapStateToProps = state => state;
 
 const mapDispatchToProps = {};
 
-const authCondition = (authUser) => !!authUser;
-
 export default compose(
-  withAuthorization(authCondition),
+  withAuthorizationRouter,
   connect(
     mapStateToProps,
     mapDispatchToProps

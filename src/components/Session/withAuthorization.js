@@ -2,12 +2,12 @@ import React from 'react';
 
 import { connect } from 'react-redux';
 import { compose } from 'redux';
-import { withRouter } from 'react-router-dom';
 
 const withAuthorization = (condition) => (Component) => {
   class WithAuthorization extends React.Component {
 
     render() {
+
       return this.props.auth.user ? <Component /> : null;
     }
   }
@@ -19,7 +19,6 @@ const withAuthorization = (condition) => (Component) => {
   const mapDispatchToProps = {};
 
   return compose(
-    withRouter, 
     connect(
       mapStateToProps,
       mapDispatchToProps
