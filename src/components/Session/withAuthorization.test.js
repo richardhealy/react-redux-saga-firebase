@@ -15,28 +15,20 @@ class AComponent extends React.Component {
 	}
 };
 
-AComponent.defaultProps = {
-  auth: {
-  	user: true
-  }
-};
-
 const authCondition = (authUser) => {
 	return !!authUser;
 };
 
 describe("<withAuthorization />", () => {
 
-	const mockStore = configureStore()
+	const mockStore = configureStore();
+	const store = mockStore({});
+	let componentWithAuth = compose(
+	  withAuthorization(authCondition)
+	)(AComponent);
 
-	test('renders properly when initialed with react component', () => {
+	test('renders component when authorized', () => {
 		
-		const componentWithAuth = compose(
-		  withAuthorization(authCondition)
-		)(AComponent);
-
-		const store = mockStore({});
-
 		const props = { 
 			store,
 			auth : {
@@ -46,5 +38,18 @@ describe("<withAuthorization />", () => {
 
 		const renderedComp = mount(React.createElement(componentWithAuth, props));
 		expect(renderedComp.find('h1.title').exists()).toBe(true);
+	});
+
+	test('renders `null` when not authorized', () => {
+		
+		const props = { 
+			store,
+			auth : {
+				user: false
+			}
+		};
+
+		const renderedComp = mount(React.createElement(componentWithAuth, props));
+		expect(renderedComp.find('h1').exists()).toBe(false);
 	});
 });
